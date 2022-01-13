@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -91,6 +92,10 @@ export default function Searchbar(props) {
 
   const handleFormSubmit = evt => {
     evt.preventDefault();
+    if (evt.currentTarget.elements.querry.value.trim() === '') {
+      toast.error('Your querry is empty!', { position: 'top-right' });
+      return;
+    }
     props.onSubmit({ querry: evt.currentTarget.elements.querry.value });
     setValue('');
   };

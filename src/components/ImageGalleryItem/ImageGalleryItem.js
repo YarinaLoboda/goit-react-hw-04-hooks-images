@@ -24,7 +24,7 @@ const GalleryItemImage = styled.img`
 `;
 
 export default function ImageGalleryItem(props) {
-  const onImageClick = evt => {
+  const onImageClick = () => {
     props.onImgClick({ max: props.max, tag: props.tag });
   };
 
